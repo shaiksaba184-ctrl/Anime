@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anime Reels 🔥</title>
+
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Arial, sans-serif;
+}
+
+body{
+  background:#000;
+  color:#fff;
+  overflow-x:hidden;
+}
+
+/* ===== BACKGROUND ===== */
+.bg{
+  position:fixed;
+  inset:0;
+  background:url("https://images.unsplash.com/photo-1606112219348-204d7d8b94ee") center/cover no-repeat;
+  filter:blur(18px) brightness(.4);
+  z-index:-2;
+}
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.6);
+  z-index:-1;
+}
+
+/* ===== HEADER ===== */
+header{
+  padding:20px;
+  text-align:center;
+}
+header h1{
+  font-size:32px;
+  background:linear-gradient(90deg,#ff004f,#ff9800);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+header p{opacity:.7}
+
+/* ===== SUBSCRIBE ===== */
+.subscribe{
+  display:flex;
+  justify-content:center;
+  margin-bottom:20px;
+}
+
+/* ===== REELS ===== */
+.reels{
+  display:flex;
+  gap:20px;
+  padding:20px;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+}
+.reels::-webkit-scrollbar{display:none}
+
+/* ===== REEL CARD ===== */
+.reel{
+  min-width:260px;
+  height:460px;
+  border-radius:22px;
+  overflow:hidden;
+  scroll-snap-align:center;
+  position:relative;
+  background:#000;
+  box-shadow:0 0 30px rgba(255,0,0,.35);
+  transition:.4s;
+}
+.reel:hover{
+  transform:scale(1.08);
+  box-shadow:
+    0 0 20px red,
+    0 0 45px rgba(255,0,0,.7);
+}
+.reel iframe{
+  width:100%;
+  height:100%;
+  border:none;
+}
+
+/* ===== GLOW BORDER ===== */
+.reel::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:22px;
+  box-shadow:inset 0 0 25px rgba(255,0,0,.6);
+  pointer-events:none;
+}
+
+/* ===== FOOTER ===== */
+footer{
+  text-align:center;
+  padding:20px;
+  font-size:13px;
+  opacity:.6;
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+<div class="overlay"></div>
+
+<header>
+  <h1>Anime Reels 🔥</h1>
+  <p>Scroll • Watch • Subscribe</p>
+</header>
+
+<div class="subscribe">
+  <div class="g-ytsubscribe"
+    data-channelid="UC9uj4_dXtOJE9nUUi1_gjdA"
+    data-layout="full"
+    data-count="default">
+  </div>
+</div>
+
+<!-- REEL STYLE VIDEOS -->
+<div class="reels" id="reels">
+
+  <div class="reel">
+    <iframe src="https://www.youtube.com/embed/videoseries?list=PLWeZIT5RB5eaoQxHOXO8j0SG33G-ScHHT"></iframe>
+  </div>
+
+  <div class="reel">
+    <iframe src="https://www.youtube.com/embed/videoseries?list=PLWeZIT5RB5eaoQxHOXO8j0SG33G-ScHHT"></iframe>
+  </div>
+
+  <div class="reel">
+    <iframe src="https://www.youtube.com/embed/videoseries?list=PLWeZIT5RB5eaoQxHOXO8j0SG33G-ScHHT"></iframe>
+  </div>
+
+</div>
+
+<footer>
+  © 2026 • Anime Reels • Auto Playlist
+</footer>
+
+<!-- HOVER SOUND -->
+<audio id="hoverSound" preload="auto">
+  <source src="https://assets.mixkit.co/sfx/preview/mixkit-fast-small-sweep-transition-166.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const sound=document.getElementById("hoverSound");
+document.querySelectorAll(".reel").forEach(card=>{
+  card.addEventListener("mouseenter",()=>{
+    sound.currentTime=0;
+    sound.play();
+  });
+});
+</script>
+
+</body>
+</html>
